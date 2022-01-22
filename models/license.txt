@@ -1,0 +1,11 @@
+Model Information:
+* title:	Hooded Enemy
+* source:	https://sketchfab.com/3d-models/hooded-enemy-d403d89345fb472a9b1fb7b1e089a7c3
+* author:	saaimb01 (https://sketchfab.com/saaimb01)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Hooded Enemy" (https://sketchfab.com/3d-models/hooded-enemy-d403d89345fb472a9b1fb7b1e089a7c3) by saaimb01 (https://sketchfab.com/saaimb01) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

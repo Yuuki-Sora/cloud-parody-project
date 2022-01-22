@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<!-- 
+  Plz don't steal our game ヾ(•ω•`)o...
+  We worked really hard on it! 
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./script.js"></script>
+    <script src="./three.js"></script>
+    <script src="./GLTFLoader.js"></script>
+    <script src="./OrbitControls.js"></script>
+    <script src="./ImprovedNoise.js"></script>
+    <script src="./FlyControls.js"></script>
+    <script src="./Gameplay.js"></script>
+    <link href="./images/icon.svg" rel="icon" />
+    <title>"Cloud" Parody Project</title>
+  </head>
+  <body>
+    <div id="cover">
+      <p
+        class="text"
+        id="loading"
+        style="font-size: 4.9vh; margin-top: 45vh; display: none; opacity: 0"
+      >
+        Loading assets, hopes, and dreams...
+      </p>
+    </div>
+    <div id="cover_transparent">
+      <p class="text" id="text_paragraph" style="margin-top: 40vh">
+        <span id="main_text" style="opacity: 0; font-size: 8vh"
+          >"Cloud" Parody Project<br />
+          <a id="intro_button" class="hover-underline" style="font-size: 3.6vh"
+            >Click here to begin!</a
+          ></span
+        >
+      </p>
+    </div>
+    <div id="tutorial" style="display: none; opacity: 0">
+      <p class="text" style="font-size: 2.4vh; margin-top: 25vh">
+        <span style="font-size: 3.6vh"> - How to play - </span><br /><br />
+        Use <b>W</b>, <b>A</b>, <b>S</b>, and <b>D</b> to move the character
+        around.<br />
+        <b>Left click</b>, <b>hold</b>, and <b>drag around</b> to rotate the
+        camera.<br /><br />
+        Press (and hold) <b>C</b> to collect some clouds,<br />
+        and press <b>X</b> to release them.<br /><br />
+        <span style="font-size: 2vh">
+          Don't worry if you can't get the hang of it. <br />
+          You can take it as slow as you could possibly ever want to, <br />
+          since you can't lose - or win, for that matter - this game.
+        </span>
+        <br /><br /><br /><br />
+        <a
+          class="hover-underline"
+          id="game_start_button"
+          style="font-size: 3.6vh"
+          >Got It. Let's Start!</a
+        >
+      </p>
+    </div>
+    <div id="information_panel" style="display: none; opacity: 0">
+      <p class="text" style="font-size: 2.4vh">
+        <span style="font-size: 5vh">About</span><br /><br />
+        Developed within a ~1 month cycle, this game is a part of the final
+        project for the<br />
+        "<a
+          class="hover-underline"
+          href="https://www.wsl.waseda.jp/syllabus/JAA104.php?&pKey=5101GF1042012021510106107351"
+          target="_blank"
+          >Advanced Course in Computer Graphics</a
+        >" course at the faculty of FSE, Waseda University (2021).<br /><br />
+        All the assets we're using here are free-to-use ones! <br />
+        ...well, except the image down below. That one's from
+        <a
+          class="hover-underline"
+          href="https://www.jenovachen.com/flowingames/cloud.htm"
+          target="_blank"
+          >Flow in Games</a
+        >. <br /><br /><br />
+        <span style="font-size: 3.6vh"> - Game Developers - </span><br /><br />
+        <a
+          class="hover-underline"
+          href="https://github.com/Yuuki-Sora"
+          target="_blank"
+          >@Yuuki-Sora</a
+        >
+        and
+        <a
+          class="hover-underline"
+          href="https://github.com/JyhWind"
+          target="_blank"
+          >@JyhWind</a
+        >
+        <br /><br /><br />
+        <span style="font-size: 3.6vh"> - Inspirations - </span><br /><br />
+        <a
+          class="hover-underline"
+          href="https://archive.org/details/Cloud_game"
+          target="_blank"
+        >
+          <img
+            src="./images/cloud.gif"
+            style="border-radius: 2vh; height: 20vh"
+          />
+        </a>
+        <br /><br /><br />
+        <a
+          class="hover-underline"
+          id="close_information_panel_button"
+          style="font-size: 3.6vh"
+          >Back to the Game!</a
+        >
+      </p>
+    </div>
+    <div id="pause_panel" style="display: none; opacity: 0">
+      <p class="text" style="font-size: 2.4vh; margin-top: 15vh">
+        <span style="font-size: 5vh">Paused</span><br /><br />
+        Paused? What paused? <br />
+        There's literally nothing you can pause here. No timers, no quests, no
+        nothing. Only clouds.<br />
+        If it's the music that's bothering you, maybe you can toggle it down
+        below. <br />
+        But why not just enjoy the classical piece?
+        <br /><br /><br />
+        <span style="font-size: 3.6vh"> - Settings - </span><br /><br />
+        Background Music -
+        <a class="hover-underline" id="music_control_button">Playing</a>
+        <br /><br /><br />
+        <span style="font-size: 3.6vh"> - Controls - </span><br /><br />
+        W, A, S, D - Character Movement<br />
+        Left Mouse Button - Camera Control<br />
+        C - Collect Clouds<br />
+        X - Release Clouds
+        <br /><br /><br />
+        <a
+          class="hover-underline"
+          id="close_pause_panel_button"
+          style="font-size: 3.6vh"
+          >I’m Ready. Take Me Back!</a
+        >
+      </p>
+    </div>
+    <div id="gameplay_area" style="display: none; opacity: 0">
+      <p id="game_overlay" style="text-align: right">
+        <a
+          class="hover-underline text"
+          id="show_pause_panel_button"
+          style="font-size: 6.5vh; margin: auto"
+          >Pause</a
+        ><br />
+        <a
+          class="hover-underline text"
+          id="show_information_panel_button"
+          style="font-size: 2vh; margin: auto"
+          >About This Game</a
+        >
+      </p>
+    </div>
+  </body>
+</html>

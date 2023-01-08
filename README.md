@@ -2,8 +2,8 @@
 
 ## Prologue
 
-To play the actual game, click [here](https://yksr.tk/sites/cloud/). 
-Note that this game is deployed on [my personal website](https://yksr.tk/). 
+To play the actual game, click [here](https://1st.moe/sites/cloud/). 
+Note that this game is deployed on [my personal website](https://1st.moe/). 
 
 If you don't care about the technical details but only want to test out the game for yourself, then there's pretty much no need to look at this repository. Just go ahead and enjoy! ヾ(•ω•`)o
 
